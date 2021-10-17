@@ -11,7 +11,7 @@ class sequence {
         
         for (int X = 0 ; X < N-1; X=X+1 ) {
             n3 = n1 + n2;
-            //fiboseq = ArrayUtils.add(fiboseq,n1);
+            
             n1=n2;
             n2=n3;
             System.out.print(n1);
@@ -19,12 +19,11 @@ class sequence {
 
     }
     }
-  //int[] fiboseq = {};
-    //fiboseq = ArrayUtils.add(fiboseq,)
+  
     public static void main(String args[])
     {
         Fibonacci(8);
-        //call Fibonacci method here
+        
         
     }
 }
