@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Swimmer
+comment0.text=\r\n\ Write\ a\ description\ of\ Swimmer\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=name\ school
+comment1.target=Swimmer(java.lang.String,\ java.lang.String)
+comment2.params=swimtime\ SwimeventID
+comment2.target=void\ addTimesaddEvents(double,\ java.lang.String)
+comment3.params=
+comment3.target=double[]\ gettimes()
+comment4.params=
+comment4.target=java.lang.String[]\ geteventID()
+numComments=5
