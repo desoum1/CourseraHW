@@ -51,10 +51,10 @@ public class Main {
         event1.addSwimmers(Robert,5.34,1);
         event1.addSwimmers(Aabattery,4.44,1);
         
-        System.out.println(event1.races[0].Swimmer[0].name);
-        System.out.println(event1.races[0].Swimmer[1].name);
+        //System.out.println(event1.races[0].Swimmer[0].name);
+        //System.out.println(event1.races[0].Swimmer[1].name);
         //...
-        
+        System.out.println(Arrays.toString(event1.races[0].time));
         event1.fillFinals();
         //System.out.println("final times and swimmers sorted by best time");
         
