@@ -1,0 +1,58 @@
+/**
+ * Downsizing grid of colours
+ * 
+ * Me
+ * 23 jan 2022
+ */
+import java.util.Arrays;
+import java.util.Scanner;
+public class Main {
+        public static void main(String[] args){
+        int[][] original = {
+        { 0xff, 0x66, 0x57, 0xc4, 0x60, 0x5b, 0xa3, 0x84, 0x5b, 0xe1 }, 
+        { 0x50, 0x4a, 0x3f, 0x4d, 0x4d, 0xff, 0x40, 0xff, 0xff, 0xe4 },
+        { 0x56, 0xff, 0x49, 0x51, 0x53, 0x40, 0xfc, 0x45, 0x3a, 0x5f },
+        { 0x52, 0xdd, 0x46, 0xe4, 0xff, 0x53, 0x52, 0xf1, 0x5b, 0x7c },
+        { 0x50, 0xb0, 0x3e, 0x92, 0x58, 0x75, 0x48, 0x8f, 0x52, 0x54 },
+        { 0xf6, 0x63, 0xd2, 0x55, 0xbb, 0x55, 0xff, 0x41, 0x55, 0xd7 },
+        { 0x41, 0x60, 0xff, 0xff, 0xdc, 0xbd, 0x66, 0x58, 0xcc, 0xd0 },
+        { 0x3d, 0x3a, 0x51, 0x92, 0x55, 0x62, 0x51, 0xe7, 0xa9, 0x5e },
+        { 0x49, 0xdd, 0xc3, 0x42, 0x6d, 0x6f, 0x75, 0xff, 0xbe, 0x61 },
+        { 0xbf, 0x5b, 0xf1, 0xe6, 0x3b, 0xf4, 0x59, 0xf0, 0xff, 0xda }
+        };
+       
+       System.out.println("Input number to downsize the array to.");
+       Scanner kb = new Scanner(System.in);
+       int Scalefactor = kb.nextInt();
+       
+       int [][] New  = new int [Scalefactor][Scalefactor];
+       
+       int Xaxis = original.length;
+       
+       int Yaxis = original[0].length;
+       
+       int Row = Xaxis/Scalefactor;
+       int Col = Yaxis/Scalefactor;
+       int g = 0;
+       for (int y = 0; y < Yaxis; y +=Col){
+           for(int x = 0; x < Xaxis; x +=Row){
+               g = 0;
+               for( int a = 0; a < Row; a++){
+                   for(int b = 0; b < Col; b++){                       
+                       g += original[x+a][y+b];
+                    }
+                }
+               
+               
+               New[x/Row][y/Col] = g/(Row*Col);
+               
+            }
+           
+        }
+       
+       for (int x = 0; x < Scalefactor; x++){
+           System.out.println(Arrays.toString(New[x]));
+        }
+    }
+    }
+
