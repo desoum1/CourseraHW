@@ -23,7 +23,7 @@ public class Deck {
    public void CreateFullDeck(){
        for(int i = 0;i<=3; i++){
            for(int j = 0; j<=12; j++){
-           
+       
                Card Y = new Card (CardNum[j],suits[i]);
                this.cards.add(Y);
             }

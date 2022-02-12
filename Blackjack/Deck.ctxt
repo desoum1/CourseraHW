@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Deck
+comment0.text=\r\n\ Write\ a\ description\ of\ Deck\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=Deck()
+comment2.params=
+comment2.target=void\ CreateFullDeck()
+comment3.params=
+comment3.target=void\ DeckShuffle()
+numComments=4
