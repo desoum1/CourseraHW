@@ -31,12 +31,13 @@ public class Deck {
     
     }
    public void DeckShuffle(){
-     int index, temp;
+     int index;
+     int temp;
      Random random = new Random();
      for (int i = this.cards.size() - 1; i > 0; i--)
      {
         index = random.nextInt(i + 1);
-        temp = this.cards[index];
+        temp = this.cards(index);
         this.cards.get(index) = this.cards[i];
         this.cards[i] = temp;
         }
