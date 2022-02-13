@@ -36,6 +36,9 @@ public class Card {
     public int getPoints(){
         return Points;
     }
+    public String getSuit(){
+        return Suit;
+    }
     public boolean isAce(){
         return Ace;
     }

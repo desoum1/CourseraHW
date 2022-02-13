@@ -15,15 +15,15 @@ public class Player {
     return nickName;
    }
 
-  public void addCard(Card aCard){
+  public void receiveCard(Card aCard){
     playerHand.add(aCard);
     this.playerNumOfCards++;
    }
 
-  public int getHandSum(){
+  public int valueOfHand(){
     int totalSum = 0;
     for(Card countSum: playerHand){
-        totalSum = totalSum + countSum.getcards();
+        totalSum = totalSum + countSum.getPoints();
     }
     return totalSum;
    }

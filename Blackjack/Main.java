@@ -1,4 +1,5 @@
-
+import java.util.Scanner;
+import java.util.ArrayList;
 /**
  * Write a description of Main here.
  * 
@@ -7,14 +8,39 @@
  */
 public class Main {
     public static void main(String[] args){    
-        Card a = new Card("Jack","Spades");
-        System.out.println(a.Points);
-        Card b = new Card("7","Hearts");
-        System.out.println(b.Points);
-        Card c = new Card("Ace","Clubs");
-        System.out.println(c.Points);
+        Scanner input = new Scanner(System.in);
+        ArrayList<Player> Players = new ArrayList<Player>();
+            
+            /*Card a = new Card("Jack","Spades");
+            System.out.println(a.Points);
+            Card b = new Card("7","Hearts");
+            System.out.println(b.Points);
+            Card c = new Card("Ace","Clubs");
+            System.out.println(c.Points);
+            
+            System.out.println(d.cards.size());
+            */
+            
+        System.out.println("Welcome to BlackJack");
+        System.out.println("How many people are playing?");
+        int playernum =  input.nextInt();
+        System.out.println(playernum);
+        for(int x =1; x<=playernum; x++){
+                
+                System.out.println("Input player " + x + " name.");
+                String nametemp = input.next();
+                
+                //Players.add(nametemp);
+                Players.add(new Player(nametemp));
+                
+                
+            }
         Deck d = new Deck();
-        System.out.println(d.cards.size());
+        d.printDeck();
+        d.shuffle();
+        d.printDeck();
+        
+        
+    }
     
     }
-}
