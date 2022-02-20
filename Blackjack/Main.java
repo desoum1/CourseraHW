@@ -10,6 +10,7 @@ public class Main {
     public static void main(String[] args){    
         Scanner input = new Scanner(System.in);
         ArrayList<Player> Players = new ArrayList<Player>();
+        ArrayList<Boolean> endgame = new ArrayList<Boolean>();
             
             /*Card a = new Card("Jack","Spades");
             System.out.println(a.Points);
@@ -32,28 +33,55 @@ public class Main {
                 
                 //Players.add(nametemp);
                 Players.add(new Player(nametemp));
-                
+                endgame.add(false);
                 
             }
         Deck d = new Deck();
-        d.printDeck();
+        //d.printDeck();
         d.shuffle();
         //d.printDeck();
         
-        for (int i=0;i<player.length; i++){
+        /*for (int i=0;i<Players.size(); i++){
 
-                System.out.println(player[i]+" "+"enter current bet:");
-                currentBet = IO.readDouble();
-                if(currentBet> player[i].getBankRoll()){
+                System.out.println(Players.get(i)+" "+"enter current bet:");
+                int currentBet = input.nextInt();
+                if(currentBet> Players.get(i)){
                     System.out.println("That is greater than the amount in your account");
                     return;
                 }
-        }
-        for(int i = 0;i<player.length; i++){
+        }*/
+        for(int i = 0;i<Players.size(); i++){
 
-            player[i].addCard(d.deal());
-            player[i].addCard(d.deal());
-            player[i].showHand(true);
-            System.out.println(player[i].valueOfHand());
+            Players.get(i).receiveCard(d.deal());
+            Players.get(i).receiveCard(d.deal());
+            Players.get(i).showHand();
+            System.out.println(Players.get(i).valueOfHand());
+            
         }
+        boolean gameover = false;
+        while(endgame.contains(false)){
+            for(int i = 0;i<Players.size(); i++){
+              System.out.println("Your points are " + Players.get(i).valueOfHand() + 
+              ",would you like to HIT or STAND");
+              String choice = input.next();
+              if(endgame.get(i) == false){
+                  if(choice == "HIT"){
+                     Players.get(i).receiveCard(d.deal());
+                     Players.get(i).showHand();
+                     System.out.println(Players.get(i).valueOfHand());
+                  }else{
+                     endgame.set(i,true);
+                  }
+              }else{
+               System.out.println("Player has already stood");
+               }
+              if(Players.get(i).valueOfHand() > 21){
+                System.out.println("player is out");
+                endgame.set(i,true);
+                }
+            }
+              
+        }
+        
     }
+}

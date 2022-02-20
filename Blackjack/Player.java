@@ -4,7 +4,6 @@ public class Player {
   private String nickName;
   private int playerNumOfCards;
   ArrayList<Card> playerHand;
-
     public Player (String name){
     this.nickName = name;
     playerHand = new ArrayList<Card>();
@@ -19,20 +18,27 @@ public class Player {
     playerHand.add(aCard);
     this.playerNumOfCards++;
    }
-
+   
+  public void showHand(){
+      for(int i = 0;i<playerNumOfCards; i++){
+      System.out.println(playerHand.get(i).getPoints());
+      
+      System.out.println(playerHand.get(i).getSuit());
+    
+    }
+  }
+   
   public int valueOfHand(){
     int totalSum = 0;
     int numAces = 0;
     for(Card countSum: playerHand){
-        totalSum = totalSum + countSum.getPoints();
-        
-        if(countSum == 1){
+        if(countSum.getPoints() == 1){
             numAces++;
             totalSum+=11;
-            } else if (countSum > 10){
+            } else if (countSum.getPoints() > 10){
                 totalSum+=10;
             }else {
-                totalSum += countSum;
+                totalSum += countSum.getPoints();
             }
     }
     return totalSum;
