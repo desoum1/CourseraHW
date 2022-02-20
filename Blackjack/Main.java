@@ -38,9 +38,22 @@ public class Main {
         Deck d = new Deck();
         d.printDeck();
         d.shuffle();
-        d.printDeck();
+        //d.printDeck();
         
-        
-    }
-    
+        for (int i=0;i<player.length; i++){
+
+                System.out.println(player[i]+" "+"enter current bet:");
+                currentBet = IO.readDouble();
+                if(currentBet> player[i].getBankRoll()){
+                    System.out.println("That is greater than the amount in your account");
+                    return;
+                }
+        }
+        for(int i = 0;i<player.length; i++){
+
+            player[i].addCard(d.deal());
+            player[i].addCard(d.deal());
+            player[i].showHand(true);
+            System.out.println(player[i].valueOfHand());
+        }
     }

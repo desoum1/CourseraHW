@@ -22,8 +22,18 @@ public class Player {
 
   public int valueOfHand(){
     int totalSum = 0;
+    int numAces = 0;
     for(Card countSum: playerHand){
         totalSum = totalSum + countSum.getPoints();
+        
+        if(countSum == 1){
+            numAces++;
+            totalSum+=11;
+            } else if (countSum > 10){
+                totalSum+=10;
+            }else {
+                totalSum += countSum;
+            }
     }
     return totalSum;
    }
