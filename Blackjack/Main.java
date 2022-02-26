@@ -82,6 +82,29 @@ public class Main {
             }
               
         }
+         System.out.println("");
+            System.out.println("- Dealers turn -");
         
+            if (dealer.getHandSum() <= 15) {
+                dealer.addCard(deck1.dealNextCard());
+                if(dealer.getHandSum() == 15){
+                    System.out.println("Blackjack! Dealer won.");
+                    System.exit(0);
+                }
+                if (dealer.getHandSum() > 21) {
+                    System.out.println("Dealer busted and got a total of " + dealer.getHandSum() + ". " + me.getNickName() + " wins this time!");
+                    //end
+                }
+            } else {
+                System.out.println("Dealer has chosen to stay!");
+                int totalDealerSum = dealer.getHandSum();
+                int totalPlayerSum = me.getHandSum();
+
+                if(totalDealerSum > totalPlayerSum){
+                    System.out.println("Both players has decided to stay. The winner is " + dealer.getNickName() + " with a total of " +  totalDealerSum + ".");
+                } else {
+                    System.out.println("Both players has decided to stay. The winner is " + me.getNickName() + " with a total of " + totalPlayerSum + ".");
+                }
+                stay = false;
     }
 }
