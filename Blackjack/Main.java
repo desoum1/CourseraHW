@@ -50,33 +50,47 @@ public class Main {
                     return;
                 }
         }*/
+        
+        
         for(int i = 0;i<Players.size(); i++){
 
             Players.get(i).receiveCard(d.deal());
             Players.get(i).receiveCard(d.deal());
             Players.get(i).showHand();
             System.out.println(Players.get(i).valueOfHand());
-            
+            if(Players.get(i).valueOfHand()== 21){
+                System.out.println(Players.get(i).getNickName() +"you have a natural");
+                endgame.set(i,true);
+            }
         }
         boolean gameover = false;
         while(endgame.contains(false)){
             for(int i = 0;i<Players.size(); i++){
-              System.out.println("Your points are " + Players.get(i).valueOfHand() + 
-              ",would you like to HIT or STAND");
-              String choice = input.next();
+              
               if(endgame.get(i) == false){
-                  if(choice == "HIT"){
+                  System.out.println(Players.get(i).getNickName() + " Your points are " + Players.get(i).valueOfHand() + 
+                  ",would you like to HIT or STAND");
+                  String choice = input.next().toUpperCase();
+                      
+                  System.out.println(choice);
+                  if(choice.equals( "HIT".toUpperCase())){
                      Players.get(i).receiveCard(d.deal());
                      Players.get(i).showHand();
                      System.out.println(Players.get(i).valueOfHand());
                   }else{
                      endgame.set(i,true);
+                     System.out.println("player ended game");
+                     
                   }
               }else{
-               System.out.println("Player has already stood");
+               System.out.println(Players.get(i).getNickName() + " has already stood");
                }
+               if(Players.get(i).valueOfHand()== 21){
+                System.out.println(Players.get(i).getNickName() +"you have hit 21.");
+                endgame.set(i,true);
+              }
               if(Players.get(i).valueOfHand() > 21){
-                System.out.println("player is out");
+                System.out.println(Players.get(i).getNickName() + " is out");
                 endgame.set(i,true);
                 }
             }
@@ -84,27 +98,48 @@ public class Main {
         }
          System.out.println("");
             System.out.println("- Dealers turn -");
-        
-            if (dealer.getHandSum() <= 15) {
-                dealer.addCard(deck1.dealNextCard());
-                if(dealer.getHandSum() == 15){
-                    System.out.println("Blackjack! Dealer won.");
-                    System.exit(0);
+         int playerBustCount=0;
+            for(int i = 0;i<Players.size(); i++){
+            if(Players.get(i).valueOfHand() > 21){
+                playerBustCount += 1;
+            }
+        }
+        if(playerBustCount == Players.size){
+            System.out.println("Dealer wins")
+        }else{
+                while (endgamedealer == false){
+               if (dealer.valueOfHand() <= 17) {
+                  dealer.receiveCard(d.deal());
+                   dealer.showHand();
+                    }
+                        
+               if(dealer.valueOfHand() == 21){
+                 System.out.println("Dealer has 21");
+                  endgamedealer = true;
+                        }
+                 if (dealer.valueOfHand() > 21) {
+                  System.out.println("Dealer busted and got a total of " + dealer.valueOfHand());
+                  endgamedealer = true;
+                        }
+                        
+            }
+            Player highestPointPlayer = Players.get(0);
+            int highestPoint = 0;
+            if(dealer.valueOfHand() > 21){
+                   for(int i = 0;i<Players.size(); i++){
+                      if(Players.get(i).valueOfHand() > highestPoint){
+                               highestPoint = Players.get(i).valueOfHand();
+                               highestPointPlayer = Players.get(i); 
+                      }
+                        }
+                   System.out.println(highestPointPlayer.getNickName());    
+                    
+             }else {
+                   System.out.println("dealer has less than 21");
                 }
-                if (dealer.getHandSum() > 21) {
-                    System.out.println("Dealer busted and got a total of " + dealer.getHandSum() + ". " + me.getNickName() + " wins this time!");
-                    //end
-                }
-            } else {
-                System.out.println("Dealer has chosen to stay!");
-                int totalDealerSum = dealer.getHandSum();
-                int totalPlayerSum = me.getHandSum();
 
-                if(totalDealerSum > totalPlayerSum){
-                    System.out.println("Both players has decided to stay. The winner is " + dealer.getNickName() + " with a total of " +  totalDealerSum + ".");
-                } else {
-                    System.out.println("Both players has decided to stay. The winner is " + me.getNickName() + " with a total of " + totalPlayerSum + ".");
-                }
-                stay = false;
-    }
+        }
+         
+        
+}
 }
