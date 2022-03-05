@@ -98,15 +98,20 @@ public class Main {
         }
          System.out.println("");
             System.out.println("- Dealers turn -");
-         int playerBustCount=0;
+        boolean endgamedealer = false;
+        
+        Players.add(new Player("dealer"));
+        int playerBustCount = 0;
+        Player dealer = Players.get(playernum);
             for(int i = 0;i<Players.size(); i++){
             if(Players.get(i).valueOfHand() > 21){
                 playerBustCount += 1;
             }
         }
-        if(playerBustCount == Players.size){
-            System.out.println("Dealer wins")
+        if(playerBustCount == Players.size()){
+            System.out.println("Dealer wins");
         }else{
+            
                 while (endgamedealer == false){
                if (dealer.valueOfHand() <= 17) {
                   dealer.receiveCard(d.deal());
@@ -137,9 +142,9 @@ public class Main {
              }else {
                    System.out.println("dealer has less than 21");
                 }
-
+                System.out.println(Players.get(playernum).getNickName());
         }
-         
+        
         
 }
 }

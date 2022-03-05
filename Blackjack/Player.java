@@ -4,6 +4,8 @@ public class Player {
   private String nickName;
   private int playerNumOfCards;
   ArrayList<Card> playerHand;
+  
+  
     public Player (String name){
     this.nickName = name;
     playerHand = new ArrayList<Card>();
@@ -21,9 +23,9 @@ public class Player {
    
   public void showHand(){
       for(int i = 0;i<playerNumOfCards; i++){
-      System.out.println(playerHand.get(i).getPoints());
+      System.out.println(playerHand.get(i).getPoints() + " of " + playerHand.get(i).getSuit());
       
-      System.out.println(playerHand.get(i).getSuit());
+      
     
     }
   }
@@ -44,4 +46,5 @@ public class Player {
     return totalSum;
    }
 
+  
 }
