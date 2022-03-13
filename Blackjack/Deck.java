@@ -60,7 +60,9 @@ public class Deck {
    }
    public Card deal(){
        Card topdeck = cards.get(0);
+       
        cards.remove(0);
+         
        return topdeck;
    }
 }

@@ -23,7 +23,7 @@ public class Player {
    
   public void showHand(){
       for(int i = 0;i<playerNumOfCards; i++){
-      System.out.println(playerHand.get(i).getPoints() + " of " + playerHand.get(i).getSuit());
+      System.out.println(playerHand.get(i).getName() + " of " + playerHand.get(i).getSuit());
       
       
     
@@ -43,8 +43,11 @@ public class Player {
                 totalSum += countSum.getPoints();
             }
     }
+    while(totalSum>21 & numAces > 0){
+            totalSum -= 10;
+            numAces--;
+    }
     return totalSum;
-   }
-
+   } 
   
 }
