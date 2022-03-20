@@ -11,6 +11,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         ArrayList<Player> Players = new ArrayList<Player>();
         ArrayList<Boolean> endgame = new ArrayList<Boolean>();
+        ArrayList<Boolean> Nat = new ArrayList<Boolean>();
             
             /*Card a = new Card("Jack","Spades");
             System.out.println(a.Points);
@@ -34,7 +35,7 @@ public class Main {
                 //Players.add(nametemp);
                 Players.add(new Player(nametemp));
                 endgame.add(false);
-                
+                Nat.add(false);
             }
         Deck d = new Deck();
         //d.printDeck();
@@ -57,16 +58,20 @@ public class Main {
             Players.get(i).receiveCard(d.deal());
             Players.get(i).receiveCard(d.deal());
             
+            System.out.println(Players.get(i).getNickName());
+            System.out.println("Cards:");
             Players.get(i).showHand();
             System.out.println(Players.get(i).valueOfHand());
             System.out.println("");
             System.out.println("");
             if(Players.get(i).valueOfHand()== 21){
                 System.out.println(Players.get(i).getNickName() +"  you have a natural");
+                System.out.println("");
                 endgame.set(i,true);
+                Nat.set(i,true);
             }
         }
-        boolean gameover = false;
+        
         while(endgame.contains(false)){
             for(int i = 0;i<Players.size(); i++){
               
@@ -75,7 +80,7 @@ public class Main {
                   ",would you like to HIT or STAND");
                   String choice = input.next().toUpperCase();
                       
-                  System.out.println(choice);
+                  System.out.println(choice); 
                   if(choice.equals( "HIT".toUpperCase())){
                      Players.get(i).receiveCard(d.deal());
                      System.out.println("");
@@ -100,52 +105,91 @@ public class Main {
             }
               
         }
-         System.out.println("");
+        
+        
+        System.out.println("");
             System.out.println("- Dealers turn -");
         boolean endgamedealer = false;
         
         
         int playerBustCount = 0;
         Player dealer = new Player("dealer");
+        
+        for(int i = 0;i<Players.size(); i++){
+            System.out.println(Players.get(1).getNickName());
+        }
             for(int i = 0;i<Players.size(); i++){
             if(Players.get(i).valueOfHand() > 21){
                 playerBustCount += 1;
-            }
+            }   
         }
-        
+        System.out.println(dealer.valueOfHand());
         if(playerBustCount == Players.size()){
             System.out.println("Dealer wins");
+            endgamedealer = true;
         }else{
             
-                while (endgamedealer == false){
-               if (dealer.valueOfHand() <= 17) {
-                  dealer.receiveCard(d.deal());
-                   dealer.showHand();
-                   System.out.println(" ");
-                    }
-                        
-               if(dealer.valueOfHand() == 21){
-                 System.out.println("Dealer has 21");
-                  endgamedealer = true;
-                        }
-                Player highestPointPlayer = Players.get(0);
+            while (endgamedealer == false){
+               Player highestPointPlayer = Players.get(0);
                     int highestPoint = 0;
-                        if (dealer.valueOfHand() > 21) {
-                  System.out.println("Dealer busted and got a total of " + dealer.valueOfHand());
-                  endgamedealer = true;
-                  for(int i = 0;i<Players.size(); i++){
+                    
+                    
+               for(int i = 0;i<Players.size(); i++){
                       if(Players.get(i).valueOfHand() > highestPoint){
                                highestPoint = Players.get(i).valueOfHand();
                                highestPointPlayer = Players.get(i); 
-                      }
+                    }
                         }
-                   System.out.println(highestPointPlayer.getNickName() + (", YOU WIN!"));  
-               }
+                
+               if(dealer.valueOfHand()>highestPoint){
+                   System.out.println("dealer's hand exceeds all players that are stil in");
+                   System.out.println(" ");
+                   System.out.println("Dealer Wins");
+                   endgamedealer = true;
+                }
+               if (dealer.valueOfHand() <= 17) {
+                   System.out.println(" ");
+                   dealer.receiveCard(d.deal());
+                   dealer.showHand();
+                   System.out.println(" ");
+                    }
                
+               if(dealer.valueOfHand() == 21){
+                 System.out.println("Dealer has 21");
+                 if(dealer.valueOfHand()>highestPoint){
+                     endgamedealer = true;
+                     System.out.println("");
+                    }else if(dealer.valueOfHand() == highestPoint){
+                        endgamedealer = true;
+                        System.out.println("Dealers hand is equal to player with the highest points (that is still in)");
+                    }
+                        }
+                
+                if (dealer.valueOfHand() > 21) {
+                  System.out.println("Dealer busted and got a total of " + dealer.valueOfHand());
+                  endgamedealer = true;
+                  System.out.println(highestPointPlayer.getNickName() + (", YOU WIN!")); 
+               }
+               if(dealer.valueOfHand() < highestPoint){
+                   dealer.receiveCard(d.deal());
+                   System.out.println(" ");
+                   dealer.showHand();
+                   if (dealer.valueOfHand() > 21) {
+                  System.out.println("Dealer busted and got a total of " + dealer.valueOfHand());
+                  endgamedealer = true;
+                  System.out.println(highestPointPlayer.getNickName() + (", YOU WIN!")); 
+                }
+               if(dealer.valueOfHand() == highestPoint){
+                   System.out.println(" ");
+                   System.out.println("player"+highestPointPlayer.getNickName()+"have drawn with dealer");
+                   endgamedealer = true;
+                }
             }
            
         }
         
         
-}
+    }
+    }
+
 }
