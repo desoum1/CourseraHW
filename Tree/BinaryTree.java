@@ -14,20 +14,33 @@ public class BinaryTree {
 
 
     public void inOrder(Node node){
-        /*if (node.left == null)
-            return;
-        Node e= node.left;
- 
-        System.out.println(node.left.key);
-     
-        inOrder(e);*/
-        
-        
         if (node == null)
         return;
-        System.out.print(" " + node.key);
         inOrder(node.left);
+        
+        System.out.print(" " + node.key);
+            
         inOrder(node.right);
+  }
+    public void preOrder(Node node){
+        if (node == null)
+        return;
+
+        System.out.print(" " + node.key);
+        
+        inOrder(node.left);
+        
+        inOrder(node.right);
+  }
+  public void postOrder(Node node){
+        if (node == null)
+        return;
+        
+        inOrder(node.left);
+        
+        inOrder(node.right);
+        
+        System.out.print(" " + node.key);
   }
     }
     

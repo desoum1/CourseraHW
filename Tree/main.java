@@ -7,6 +7,11 @@ public class main {
         tree.root.right = new Node(3);
         tree.root.left.left = new Node(4);
         tree.prettyPrint(tree.root, 0);
-        tree.inOrder (tree.root);
+        System.out.println("");
+        //tree.inOrder (tree.root);
+        System.out.println("");
+        tree.preOrder (tree.root);
+        System.out.println("");
+        //tree.postOrder (tree.root);
     }
-}
+}   
