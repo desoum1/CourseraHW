@@ -1,4 +1,4 @@
-
+          
 /**
  * Write a description of Node here.
  * 
@@ -6,7 +6,7 @@
  * @version (a version number or a date)
  */
 public class Node {
-    private int value;
+    private int value; 
     private Node next;
 
     Node(int value) {
@@ -40,8 +40,21 @@ public class Node {
     }
     
     public Node mergeList(Node LinkedList1, Node LinkedList2){
-        Node mergeList = new Node(null);
-        if (linkedList2.getvalue()>LinkedList2.getvalue(){
+        Node mergeList = new Node();
+        while (LinkedList1.hasNext() && LinkedList2.hasNext()) {
+            if (LinkedList1.getValue() <= LinkedList2.getValue()) {
+                mergeList.next = LinkedList1;
+                LinkedList1 = LinkedList1.next;
+            }
+ 
+            else {
+                mergeList.next = LinkedList2;
+                LinkedList2 = LinkedList2.next;
+            }
+            mergeList = mergeList.next;
         }
+        return mergeList.next;
+        }
+        
      }
-}
+
