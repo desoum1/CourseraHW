@@ -115,6 +115,25 @@ public class Node {
         }
         return mergehead.next;
         }
-      
-     }
+    public static void reverseNode(String[] args) {
+        Node LinkedList1 = new Node(1);
+        Node head1 = LinkedList1;
+        LinkedList1.setNext(new Node(3));
+        LinkedList1= LinkedList1.getNext();
+        LinkedList1.setNext(new Node(5));
+        LinkedList1= LinkedList1.getNext();
+        LinkedList1.setNext(new Node(7));
+        LinkedList1= LinkedList1.getNext();
+        LinkedList1.setNext(new Node(9));
+        Node revers = new Node(LinkedList1.getNext().getValue());
+        
+        //need to find way to check length of node, used 4 as temporary fix
+        for (int i = 1; i < 4; i++){
+            revers.setNext(new Node (LinkedList1.getNext().getValue()));
+            revers.getNext();
+        }
+        LinkedList1.getNext();
+    } 
+     
+}
 
