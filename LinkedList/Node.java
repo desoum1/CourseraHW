@@ -40,6 +40,7 @@ public class Node {
         return (next != null);
     }
     
+    
     public void printList() {
         Node temp = this;
         while (temp != null) {
@@ -70,16 +71,18 @@ public class Node {
         LinkedList2.setNext(new Node(6));
         LinkedList2= LinkedList2.getNext();
         LinkedList2.setNext(new Node(8));
-        LinkedList1= LinkedList1.getNext();
-        LinkedList1.setNext(new Node(10));
         
-        System.out.println("");
+        
+        //System.out.println("");
+        //head1.printList();
+        //System.out.println("");
+        //head2.printList();
+        //System.out.println("");
+        //Node mergedlist = mergeList(head1,head2);
+        //mergedlist.printList();
         head1.printList();
-        System.out.println("");
-        head2.printList();
-        System.out.println("");
-        Node mergedlist = mergeList(head1,head2);
-        mergedlist.printList();
+        Node ReversedList = reverseNode(head1);
+        ReversedList.printList();
     }
     public static Node mergeList(Node LinkedList1, Node LinkedList2){
         Node mergeList = new Node();
@@ -115,24 +118,21 @@ public class Node {
         }
         return mergehead.next;
         }
-    public static void reverseNode(String[] args) {
-        Node LinkedList1 = new Node(1);
-        Node head1 = LinkedList1;
-        LinkedList1.setNext(new Node(3));
-        LinkedList1= LinkedList1.getNext();
-        LinkedList1.setNext(new Node(5));
-        LinkedList1= LinkedList1.getNext();
-        LinkedList1.setNext(new Node(7));
-        LinkedList1= LinkedList1.getNext();
-        LinkedList1.setNext(new Node(9));
-        Node revers = new Node(LinkedList1.getNext().getValue());
+    public static Node reverseNode(Node LinkedList1) {
         
-        //need to find way to check length of node, used 4 as temporary fix
-        for (int i = 1; i < 4; i++){
-            revers.setNext(new Node (LinkedList1.getNext().getValue()));
-            revers.getNext();
+        Node revers = new Node();
+        Node head3 = revers;
+        while (LinkedList1 != null){
+            System.out.println(LinkedList1.getValue());
+            int  
+            System.out.println("");
+            revers.setNext(new Node (LinkedList1.getValue()));
+            revers =  revers.getNext();
+            System.out.println("");
+            LinkedList1 = LinkedList1.getNext();
         }
-        LinkedList1.getNext();
+
+        return head3;
     } 
      
 }
