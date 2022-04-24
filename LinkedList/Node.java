@@ -119,20 +119,30 @@ public class Node {
         return mergehead.next;
         }
     public static Node reverseNode(Node LinkedList1) {
-        
-        Node revers = new Node();
-        Node head3 = revers;
-        while (LinkedList1 != null){
+        Node Prev = null;
+        Node Curr = LinkedList1;
+        Node Next = null;
+        while (Curr != null){
+            
+            
+            Next = Curr.getNext();
             System.out.println(LinkedList1.getValue());
-            int  
+            //int  d
             System.out.println("");
-            revers.setNext(new Node (LinkedList1.getValue()));
-            revers =  revers.getNext();
+            Curr.setNext(Prev);
+            Prev = Curr;
+            Curr = Next;
+            
+            
             System.out.println("");
-            LinkedList1 = LinkedList1.getNext();
+            Prev.printList();
+            System.out.println("");
+            Curr.printList();
+            System.out.println("");
+            Next.printList();
         }
 
-        return head3;
+        return Prev;
     } 
      
 }
