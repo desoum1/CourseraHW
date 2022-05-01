@@ -53,41 +53,41 @@ public class Node {
     
         Node LinkedList1 = new Node(1);
         Node head1 = LinkedList1;
-        LinkedList1.setNext(new Node(3));
-        LinkedList1= LinkedList1.getNext();
+        //LinkedList1.setNext(new Node(3));
+        //LinkedList1= LinkedList1.getNext();
         LinkedList1.setNext(new Node(5));
         LinkedList1= LinkedList1.getNext();
-        LinkedList1.setNext(new Node(7));
-        LinkedList1= LinkedList1.getNext();
+        //LinkedList1.setNext(new Node(7));
+        //LinkedList1= LinkedList1.getNext();
         LinkedList1.setNext(new Node(9));
         
         
         Node LinkedList2 = new Node(2);
         Node head2 = LinkedList2;
-        LinkedList2.setNext(new Node(2));
-        LinkedList2= LinkedList2.getNext();
+        //LinkedList2.setNext(new Node(2));
+        //LinkedList2= LinkedList2.getNext();
         LinkedList2.setNext(new Node(4));
         LinkedList2= LinkedList2.getNext();
         LinkedList2.setNext(new Node(6));
-        LinkedList2= LinkedList2.getNext();
-        LinkedList2.setNext(new Node(8));
+        //LinkedList2= LinkedList2.getNext();
+        //LinkedList2.setNext(new Node(8));
         
-        head1.printList();
-        head2.printList();
+        //head1.printList();
+        //head2.printList();
         //System.out.println("");
         //head1.printList();
         //System.out.println("");
         //head2.printList();
         //System.out.println("");
-        Node mergedlist = mergeList(head1,head2);
-        mergedlist.printList();
+        //Node mergedlist = mergeList(head1,head2);
+        //mergedlist.printList();
         //head1.printList();
         
         //Node ReversedList = reverseNode(head2);
         
         //ReversedList.printList();
         
-        
+        Node sumnode = SumNode(head1, head2);
         
       
     }
@@ -131,6 +131,7 @@ public class Node {
         }
         System.out.println("");
         
+        
         System.out.println("");
         return mergehead.next;
         }
@@ -161,6 +162,27 @@ public class Node {
         
         return Prev;
     } 
+    public static Node SumNode(Node LinkedList1, Node LinkedList2){
+        int temp = 0;
+        Node SumNode = new Node(0);
+        while (LinkedList1 != null && LinkedList2 != null){
+            if(LinkedList1.getValue() + LinkedList2.getValue() >10){
+            
+                SumNode.setNext(new Node(LinkedList1.getValue() + LinkedList2.getValue() % 10 + temp));
+                
+            
+                
+                temp += 1;
+            }else{
+                SumNode.setNext(new Node(LinkedList1.getValue() + LinkedList2.getValue() + temp));
+            }
+            LinkedList1 = LinkedList1.getNext();
+            LinkedList2 = LinkedList2.getNext();
+            SumNode = SumNode.getNext();
+        }
+        SumNode.printList();
+        return SumNode;
+    }
      
 }
 
