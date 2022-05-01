@@ -72,50 +72,66 @@ public class Node {
         LinkedList2= LinkedList2.getNext();
         LinkedList2.setNext(new Node(8));
         
-        
+        head1.printList();
+        head2.printList();
         //System.out.println("");
         //head1.printList();
         //System.out.println("");
         //head2.printList();
         //System.out.println("");
-        //Node mergedlist = mergeList(head1,head2);
-        //mergedlist.printList();
-        head1.printList();
-        Node ReversedList = reverseNode(head1);
-        ReversedList.printList();
+        Node mergedlist = mergeList(head1,head2);
+        mergedlist.printList();
+        //head1.printList();
+        
+        //Node ReversedList = reverseNode(head2);
+        
+        //ReversedList.printList();
+        
+        
+        
+      
     }
     public static Node mergeList(Node LinkedList1, Node LinkedList2){
         Node mergeList = new Node();
         Node mergehead = mergeList;
-        while (LinkedList1.hasNext() && LinkedList2.hasNext()) {
+        while (LinkedList1 != null && LinkedList2 != null) {
             
             if (LinkedList1.getValue() <= LinkedList2.getValue()) {
                 mergeList.next = LinkedList1;
                 
                 LinkedList1 = LinkedList1.getNext();
-                LinkedList1.printList();
+                //LinkedList1.printList();
+                System.out.println("");
             }
  
             else {
                 mergeList.next = LinkedList2;           
                 
                 LinkedList2 = LinkedList2.getNext();
-                LinkedList2.printList();
+                //LinkedList2.printList();
+                System.out.println("");
             }
             mergeList = mergeList.next;
         }
+        
         boolean a;
+        boolean b;
         if(LinkedList1 == null){
-             a = true;
+             
+             mergeList.next = LinkedList2;
         }else{
-             a = false;
+             
+             mergeList.next = LinkedList1;
         }
-        if(a == true){
-            mergeList.next = LinkedList2;
+        System.out.println("");
+        if(LinkedList2 == null){
+             mergeList.next = LinkedList1;
+        }else{
+             mergeList.next = LinkedList2;
         }
-        else if(a == false){
-            mergeList.next = LinkedList1;
-        }
+        System.out.println("");
+        
+        System.out.println("");
         return mergehead.next;
         }
     public static Node reverseNode(Node LinkedList1) {
@@ -126,7 +142,7 @@ public class Node {
             
             
             Next = Curr.getNext();
-            System.out.println(LinkedList1.getValue());
+            
             //int  d
             System.out.println("");
             Curr.setNext(Prev);
@@ -134,14 +150,15 @@ public class Node {
             Curr = Next;
             
             
-            System.out.println("");
+            /*System.out.println("");
             Prev.printList();
             System.out.println("");
             Curr.printList();
             System.out.println("");
-            Next.printList();
+            Next.printList();*/
         }
-
+        
+        
         return Prev;
     } 
      
