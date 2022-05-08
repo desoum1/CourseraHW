@@ -51,7 +51,7 @@ public class Node {
     public static void main(String[] args) {
     
     
-        Node LinkedList1 = new Node(1);
+        Node LinkedList1 = new Node(9);
         Node head1 = LinkedList1;
         //LinkedList1.setNext(new Node(3));
         //LinkedList1= LinkedList1.getNext();
@@ -88,7 +88,7 @@ public class Node {
         //ReversedList.printList();
         
         Node sumnode = SumNode(head1, head2);
-        
+        sumnode.printList();
       
     }
     public static Node mergeList(Node LinkedList1, Node LinkedList2){
@@ -165,23 +165,28 @@ public class Node {
     public static Node SumNode(Node LinkedList1, Node LinkedList2){
         int temp = 0;
         Node SumNode = new Node(0);
-        while (LinkedList1 != null && LinkedList2 != null){
-            if(LinkedList1.getValue() + LinkedList2.getValue() >10){
-            
-                SumNode.setNext(new Node(LinkedList1.getValue() + LinkedList2.getValue() % 10 + temp));
-                
-            
-                
-                temp += 1;
+        Node sumHead = SumNode;
+        while (LinkedList1 != null &&  LinkedList2 != null){
+            SumNode.setNext(new Node(((LinkedList1.getValue()) + (LinkedList2.getValue()) + temp)%10));
+            if(LinkedList1.getValue() + LinkedList2.getValue() + temp > 9){
+                temp = 1;
             }else{
-                SumNode.setNext(new Node(LinkedList1.getValue() + LinkedList2.getValue() + temp));
+                temp = 0;
             }
+            
             LinkedList1 = LinkedList1.getNext();
             LinkedList2 = LinkedList2.getNext();
-            SumNode = SumNode.getNext();
+            SumNode = SumNode.next;
+            //SumNode.printList();
         }
-        SumNode.printList();
-        return SumNode;
+        if (temp == 1){
+            SumNode.setNext(new Node(1));
+        }
+        
+        sumHead = sumHead.next;
+        
+        return reverseNode(sumHead);
+        
     }
      
 }
