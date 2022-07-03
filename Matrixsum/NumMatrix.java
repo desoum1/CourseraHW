@@ -1,15 +1,19 @@
 class NumMatrix {
-
+   int [][] mymatrix;
     public NumMatrix(int[][] matrix) {
-        
+        mymatrix = matrix;
     }
     
     public int sumRegion(int row1, int col1, int row2, int col2) {
-        while(int x =0; x < col2; x++ ){
-            while(in y =0; y< row2; y++){
-                
-            }}
-    }
+        int matrixsum = 0;
+        for(int y = row1; y <= row2; y++){
+             for(int x = col1; x <= col2; x++){
+                System.out.println(mymatrix[y][x]);
+                matrixsum += mymatrix[y][x];
+            }
+       }
+    return matrixsum;
+}
 }
 
 /**
