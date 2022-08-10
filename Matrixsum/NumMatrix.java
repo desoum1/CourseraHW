@@ -1,43 +1,28 @@
 class NumMatrix {
-   int [][] mymatrix;
-    int length;
-    int width;
+   int [][] matrix;
+
     public NumMatrix(int[][] matrix) {
-        mymatrix = matrix;
-       
-       length = matrix.length;
-        width = matrix[0].length;
-        
-        for (int a = 0;a <= width-1; a++){
-            for(int b = 0;b <= length-1; b++) {
-                System.out.println(mymatrix[a][b]);
+        for(int i=0; i<matrix.length;i++){
+            for(int x=1; x<matrix[0].length; x++){
+                matrix[i][x] += matrix[i][x-1];
+                //above addition
+                //out of bounds issue (fixed with setting j and i to 1)
+            }
         }
+        for(int i=1; i<matrix.length;i++){
+            for(int x=0; x<matrix[0].length; x++){
+                matrix[i][x] += matrix[i-1][x];
+                //side  addition
+            }
+        }
+            this.matrix = matrix;
+        //constructor
+    }
+    public int sumRegion(int row1, int col1, int row2, int col2){
+        int total = matrix[row2][col2];
+        int extra = (col1!=0?matrix[row2][col1-1]:0) + (row1!=0?matrix[row1-1][col2]:0) - ((row1!=0 && col1!=0)?matrix[row1-1][col1-1]:0);
+            //fixes out of bounds
+ return total - extra;
     }
 }
-    
-    
-    
-    public int sumRegion(int row1, int col1, int row2, int col2) {
-        for(int y = 0; y < length-1; y++){
-            int prev = 0;
-            for(int x = 0;  x < width-1; x++){
-                if(x == 0){
-                    sumregion[x][y] = NumMatrix[x][y] + prev + NumMatrix[x][y-1] + prev + 0;
-                    //first row summary takes all left val from NumMatrix
-                }
-                sumregion[x][y] = NumMatrix[x][y] + prev + NumMatrix[x][y-1];
-                    //take above in sumreg and all left val from NumMatrix
-                    System.out.println(sumregion[x][y]);
-                prev += NumMatrix[x][y];
-                
-                //helps with sum of previous matrix previous
-             }
-        }
-    }            
-}
-
-/**
- * Your NumMatrix object will be instantiated and called as such:
- * NumMatrix obj = new NumMatrix(matrix);
- * int param_1 = obj.sumRegion(row1,col1,row2,col2);
- */
+//i did use youtube to help
