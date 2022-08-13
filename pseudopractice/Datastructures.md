@@ -47,3 +47,8 @@ for current.value not null
     next = current.next.next
 return prev
 ``` 
+
+-
+-
+-
+-
