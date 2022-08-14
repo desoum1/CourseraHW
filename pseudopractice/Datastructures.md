@@ -42,7 +42,7 @@ current = head
 next = null
 
 while current.value != null
-//travers thge ll and reverse pointers at eaech node bby using prev currrent and next 
+//travers the ll and reverse pointers at eaech node bby using prev currrent and next 
     next = current.getnext
     Current.setNext(prev)
     prev = current
@@ -115,5 +115,89 @@ if node != NULL
         print tree.root
         preorder (tree.left)
         preorder (tree.right)
+end
+```
+- add and remove value from stack
+```
+stack.push (5)
+stack.pop()
+```
+
+- reverse stack
+```
+revstack
+int orginalsize = stack.size
+begin
+while revstack.size !== originalsize
+    int e = stack.pop
+    revstack.push(e)
+end
+```
+- queue remove and add
+```
+queue.enqueue(5)
+queue.dequeue()
+```
+- reversequeue
+```
+revqueue
+begin
+//adds queue numbers to list
+while queue.size !=0 
+    int x = queue.dequeue()
+    list.append (x)
+int y=list.size-1  
+//starts from end of list and starts adding to reverse queue
+while (y >= 0 )
+    revqueue.enqueue(list[y])
+    y=y-1
+end
+```
+- reverse queue using stack
+```
+revqueue
+begin
+// add queue to stack
+while queue.size != 0
+    int x = queue.dequeue()
+    stack.push(x)
+//pop the stack into the reversequeue
+while stack.size != 0
+    revqueue.enqueue(stack.pop())
+end
+```
+- remove nth node from LinkedList
+```
+LL
+begin
+int x = 0
+while LL.value() != null
+    if x == n
+        current = current.next.next
+    else
+        current = current.next
+        x += 1
+end
+```
+- 2d matrix calculate sum of given window
+```
+2d_matrix[][]
+int x1
+int x2
+int y1
+int y2
+
+
+begin
+windownum(x1,x2,y1,y2,2d_matrix)
+    int temp_x = x1
+    int temp_y = y1
+    int windowsum = 0
+    while temp_x < x2
+        x +=1
+        while temp_y < y2
+            temp_y += 1
+            windowsum += 2dmatrix[temp_x][temp_y]
+    return windowsum
 end
 ```
