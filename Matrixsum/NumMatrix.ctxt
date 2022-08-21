@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=NumMatrix
-comment1.params=matrix
-comment1.target=NumMatrix(int[][])
-comment2.params=row1\ col1\ row2\ col2
-comment2.target=int\ sumRegion(int,\ int,\ int,\ int)
-numComments=3
