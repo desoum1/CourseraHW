@@ -201,3 +201,15 @@ windownum(x1,x2,y1,y2,2d_matrix)
     return windowsum
 end
 ```
+- bubble sort list on num
+```
+List = 1,5,7,4,0,2,13,8
+bubblesort(list)
+    if list[x] >list[x+1]
+        //swap list[x] with list[x+1]
+        tempint = list[x]
+        list[x] = list[x+1]
+        list[x+1] = tmepint
+    x += 1
+
+```
