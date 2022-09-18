@@ -27,23 +27,28 @@ public class StarShip {
     
     
     public double averageDelay() {
-        int sumDelay = 0;
+        double sumDelay = 0;
         int delayCount;
-        for (int x = 0; x < voyageHistory.length; x++){
+        for (int x = 0; x < numberOfVoyages  ; x++){
             System.out.println(x);
+            System.out.println(sumDelay);
+            System.out.println(numberOfVoyages);
             sumDelay += voyageHistory[x].getDelay();
         }
         
         double averageDelay = sumDelay / numberOfVoyages;
         return averageDelay;
     }
-    /*
-    public String longestDelay(FlightNumbers[] fn) {
-        // Returns the flight number for the voyage with the longest delay
-        // Code missing
+    
+    public String longestDelay() {
+        int longestDelay = 0;
+        String VoyagelongDelay= "";
+        for (int x = 0; x < numberOfVoyages  ; x++){ 
+            if(longestDelay < voyageHistory[x].getDelay()){
+                longestDelay = voyageHistory[x].getDelay();
+                VoyagelongDelay = voyageHistory[x].getflightNumber();
+            }
+        }
+        return VoyagelongDelay;
     }
-    public String toString(FlightNumbers[] fn) {
-        // Code missing
-    }
-    */
 }

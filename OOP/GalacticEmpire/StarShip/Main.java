@@ -15,5 +15,6 @@ public class Main {
         System.out.println(allShips[0].getVoyage(1).getDelay());
         System.out.println(allShips[1].getNumberOfVoyages());
         System.out.println(allShips[0].averageDelay());
+        System.out.println(allShips[0].longestDelay());
     }
 }

@@ -15,5 +15,8 @@ public class Voyage {
     public int getDelay(){
         return delay;
     }
+    public String getflightNumber(){
+        return flightNumber;
+    }
     // All accessor and mutator methods provided
 }
