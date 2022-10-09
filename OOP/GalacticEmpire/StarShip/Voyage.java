@@ -18,5 +18,7 @@ public class Voyage {
     public String getflightNumber(){
         return flightNumber;
     }
-    // All accessor and mutator methods provided
+    public boolean getrebelRelated(){
+        return rebelRelated;
+    }
 }

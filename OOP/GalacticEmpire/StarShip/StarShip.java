@@ -6,7 +6,7 @@ public class StarShip {
     public StarShip(String name, String num) {
         this.shipName = name;
         this.shipNumber = num;
-        this.numberOfVoyages = 0;
+        this.numberOfVoyages = 0;   
         //constructor
     }
     public StarShip() {}
@@ -30,25 +30,29 @@ public class StarShip {
         double sumDelay = 0;
         int delayCount;
         for (int x = 0; x < numberOfVoyages  ; x++){
-            System.out.println(x);
-            System.out.println(sumDelay);
-            System.out.println(numberOfVoyages);
             sumDelay += voyageHistory[x].getDelay();
         }
         
         double averageDelay = sumDelay / numberOfVoyages;
         return averageDelay;
     }
-    
-    public String longestDelay() {
+    //checks for longest dealy non rebel and then conversts code to actual name
+    public String longestDelay(FlightNumber[] allFlights) {
         int longestDelay = 0;
-        String VoyagelongDelay= "";
+        String code= "";
         for (int x = 0; x < numberOfVoyages  ; x++){ 
-            if(longestDelay < voyageHistory[x].getDelay()){
-                longestDelay = voyageHistory[x].getDelay();
-                VoyagelongDelay = voyageHistory[x].getflightNumber();
+            if(voyageHistory[x].getrebelRelated() == false){
+                  if(longestDelay < voyageHistory[x].getDelay()){
+                            longestDelay = voyageHistory[x].getDelay();
+                            code = voyageHistory[x].getflightNumber();
+                  }
             }
         }
-        return VoyagelongDelay;
+        for (int i = 0; i<allFlights.length; i++){
+            if (allFlights[i].getFlightCode() == code){
+                return allFlights[i].getFlightName();
+            }
+        }
+        return "No flights found";
     }
 }
