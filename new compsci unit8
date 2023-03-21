@@ -72,9 +72,6 @@ class Program {
 }
 //8.2
 
-//*Incomplete*
-
-
 using System;
 
 class Program {
@@ -98,19 +95,19 @@ class Program {
     Console.WriteLine("  \n*   *\n*   *\n*   *\n *** \n    *\n    *\n    *\n ");
     }
     else if (num == 5){
-    Console.WriteLine();
+    Console.WriteLine(" *** \n*    \n*    \n*    \n *** \n    *\n    *\n    *\n ***");
     }
     else if (num == 6){
     Console.WriteLine(" *** \n*    \n*    \n*    \n *** \n*   *\n*   *\n*   *\n ***");
     }
     else if (num == 7){
-    Console.WriteLine();
+    Console.WriteLine(" *** \n    *\n    *\n    *\n  \n    *\n    *\n    *\n ");
     }
     else if (num == 8){
     Console.WriteLine(" *** \n*   *\n*   *\n*   *\n *** \n*   *\n*   *\n*   *\n ***");
     }
     else if (num == 9){
-    Console.WriteLine();
+    Console.WriteLine(" *** \n*   *\n*   *\n*   *\n *** \n    *\n    *\n    *\n ***");
     }
   }
 }
