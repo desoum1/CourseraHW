@@ -1,0 +1,246 @@
+//Unit 6
+
+//6.1
+using System;
+
+class Program {
+  public static void Main (string[] args){
+
+  int i = 0;
+
+while (i < 21)
+{
+    Console.WriteLine(i);
+    i+=2;
+}
+    
+  }
+}
+//6.2
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    int pin = 2669402;
+
+    Console.WriteLine("Welcome to Bank of money");
+    Console.WriteLine("Pin?");
+    int entry = Convert.ToInt32(Console.ReadLine());
+    
+    while (entry != pin){
+      Console.WriteLine("wrong, do it again");
+          Console.WriteLine("pin?");
+      entry = Convert.ToInt32(Console.ReadLine());
+      
+    }
+    Console.WriteLine("ye");
+    
+    /* != means does not equal.
+    == would make it aceept wrong codes, unless re-written to search if correct pin rather than while wrong */
+  }
+}
+//6.3
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    Console.WriteLine ("Give string, will say 5 times");
+    Console.WriteLine("Message:");
+    String message = Console.ReadLine();
+
+    int n = 0;
+
+    while(n < 5){
+      Console.WriteLine(n+1 + ". " + message);
+      n++;
+      
+    }
+    
+  }
+}
+//6.4
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    int pin = 12345;
+    int tries = 0;
+    int triesleft = 3;
+    
+
+    Console.WriteLine("Welcome to Bank of money.");
+    Console.WriteLine("Pin?");
+    int entry = Convert.ToInt32(Console.ReadLine());
+    
+    while (entry != pin && tries < 3){
+      Console.WriteLine("\nwrong, do it again.");
+      triesleft--;
+      Console.WriteLine("\ntries left:" + triesleft);
+      
+          Console.WriteLine("pin?");
+      entry = Convert.ToInt32(Console.ReadLine());
+      
+      tries++;
+      
+    }
+    if(entry == pin){
+      Console.WriteLine("\nPin good, get ur money.");
+    }
+    else if (tries >=3){
+      Console.WriteLine("\nNo money, account is now on ice idiot.");
+    }
+    
+  }
+}
+//6.5
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+  Random rnd = new Random();
+  
+    int entry = 0;
+    
+    int answer = rnd.Next(0,11);
+    while (entry != answer){
+      
+      Console.WriteLine("Enter a number between 1 and 10");
+      entry = Convert.ToInt32(Console.ReadLine());
+      
+      
+      if((entry < answer)&&(entry>0))
+      {
+      Console.WriteLine("Sorry, your anwser was too low");
+      
+      }
+      else if  ((entry > answer)&&(entry <= 10))
+      {
+      Console.WriteLine("Sorry, your anwser was too high");
+      
+      }
+      else if (entry == answer){
+        Console.WriteLine("Nice, you got it correct!\nThe answer was " + answer + ".");
+        break;
+      
+      }
+      else{
+        Console.WriteLine("I said, between 1 and 10");
+      }
+    
+  }
+    
+}
+  }
+  //6.6
+  using System;
+
+class Program {
+  public static void Main (string[] args) {
+    int dice1 = 0 ;
+    int dice2 = 7 ;
+    Random rnd = new Random();
+    while(dice1 != dice2){
+      dice1 = rnd.Next(1,7);
+      dice2 = rnd.Next(1,7);
+      Console.WriteLine("Dice #1: "+dice1);
+      Console.WriteLine("Dice #2: "+dice2);
+      if(dice1 != dice2){
+        Console.WriteLine("AGAIN!\n");
+      }
+      
+    }
+    Console.WriteLine("yay");
+    
+  }
+}
+//6.7
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+  Random rnd = new Random();
+  
+    int entry = 0;
+    int i = 1;
+    int answer = rnd.Next(0,11);
+    while(i > 0){
+      
+      
+      Console.WriteLine("Enter a number between 1 and 10");
+      entry = Convert.ToInt32(Console.ReadLine());
+      
+      
+      if((entry < answer)&&(entry>0))
+      {
+      Console.WriteLine("Sorry, your anwser was too low");
+      i+=1;
+      }
+      else if  ((entry > answer)&&(entry <= 10))
+      {
+      Console.WriteLine("Sorry, your anwser was too high");
+      i+=1;
+      }
+      else if (entry == answer){
+        Console.WriteLine("Nice, you got it correct!\nThe answer was " + answer + ".");
+        break;
+      
+      }
+      else{
+        Console.WriteLine("I said, between 1 and 10");
+        i+=1;
+      }
+    
+  }
+    Console.WriteLine("It took you " + i + " tries!");
+}
+  }
+  //6.8
+  using System;
+
+class Program {
+  public static void Main (string[] args) {
+  Random rnd = new Random();
+  
+    int entry = 0;
+    
+    int attempts = 1;
+    int answer = rnd.Next(0,101);
+    while(attempts > 0){
+      
+      if(attempts < 9){
+              Console.WriteLine("Guess a number between 1 and 100");
+        Console.WriteLine("Guess #" + attempts);
+      entry = Convert.ToInt32(Console.ReadLine());
+
+        if (entry == answer){
+        Console.WriteLine("\nNice, you got it correct!\nThe answer was " + answer + ".");
+        break;
+      
+      }
+        else if(attempts == 7){
+        Console.WriteLine("Uh oh dumbaass, no more tries.");
+        break;
+      }
+        else if((entry < answer)&&(entry>0))
+      {
+      Console.WriteLine("Sorry, your anwser was too low");
+      attempts+=1;
+      }
+        else if  ((entry > answer)&&(entry <= 100))
+      {
+      Console.WriteLine("Sorry, your anwser was too high");
+      attempts+=1;
+      }
+      
+      else{
+        Console.WriteLine("I said, between 1 and 100");
+        attempts+=1;
+      }
+    
+      }
+      
+
+  }
+    
+}
+  }
