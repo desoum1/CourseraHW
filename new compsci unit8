@@ -1,0 +1,116 @@
+//8.1
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+
+    int totalCal = 0;
+    Console.WriteLine("Welcome to Fat bastard food");
+    Console.WriteLine("What burger?");
+    int burg = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("What side?");
+    int side = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("What drink?");
+    int drink = Convert.ToInt32(Console.ReadLine());
+     Console.WriteLine("What dessert?");
+    int dess = Convert.ToInt32(Console.ReadLine());
+   
+
+    if(burg==1){
+      totalCal += 461;
+    }
+    else if(burg==2){
+      totalCal += 431;
+    }
+    else if(burg==3){
+      totalCal += 420;
+    }
+    else{
+      totalCal+= 0;
+    }
+    
+    if(side==1){
+      totalCal += 100;
+    }
+    else if(side==2){
+      totalCal += 57;
+    }
+    else if(side==3){
+      totalCal += 70;
+    }
+    else{
+      totalCal+=0;
+    }
+    
+     if(drink==1){
+      totalCal += 130;
+    }
+    else if(drink==2){
+      totalCal += 160;
+    }
+    else if(drink==3){
+      totalCal += 118;
+    }
+    else{
+      totalCal+=0;
+    }
+
+    if(dess==1){
+      totalCal += 167;
+    }
+    else if(dess==2){
+      totalCal += 266;
+    }
+    else if(dess==3){
+      totalCal += 75;
+    }
+    else{
+      totalCal+=0;
+    }
+    Console.WriteLine("Total Calories:" + totalCal);
+  }
+}
+//8.2
+
+//*Incomplete*
+
+
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    Console.WriteLine("Gib number");
+    int num = Convert.ToInt32(Console.ReadLine());
+
+    if(num == 0){
+      
+    }
+    else if (num == 1){
+    Console.WriteLine("     *\n     *\n     *\n     \n     *\n     *\n     *\n");
+    }
+    else if (num == 2){
+    Console.WriteLine(" *** \n*   *\n*   *\n*   *\n *** \n*   *\n*   *\n*   *\n ***");
+    }
+    else if (num == 3){
+    Console.WriteLine(" *** \n    *\n    *\n    *\n *** \n    *\n    *\n    *\n ***");
+    }
+    else if (num == 4){
+    Console.WriteLine("  \n*   *\n*   *\n*   *\n *** \n    *\n    *\n    *\n ");
+    }
+    else if (num == 5){
+    Console.WriteLine();
+    }
+    else if (num == 6){
+    Console.WriteLine(" *** \n*    \n*    \n*    \n *** \n*   *\n*   *\n*   *\n ***");
+    }
+    else if (num == 7){
+    Console.WriteLine();
+    }
+    else if (num == 8){
+    Console.WriteLine(" *** \n*   *\n*   *\n*   *\n *** \n*   *\n*   *\n*   *\n ***");
+    }
+    else if (num == 9){
+    Console.WriteLine();
+    }
+  }
+}
