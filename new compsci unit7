@@ -1,0 +1,103 @@
+//7.1
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    Console.WriteLine("type message, will repeat 5 times");
+
+    Console.Write("Message: ");
+    String message = (Console.ReadLine());
+
+    for(int n = 1; n <= 10; n = n+2){
+      Console.WriteLine(n + "." + message);
+      //n=n+1 is just a way to itterate
+    }
+  }
+}
+//7.2
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    for (int a =0; a<=20; a++){
+      if(a % 2 == 0){
+        Console.Write(a + " ");  
+        }
+    
+    }
+  }
+}
+//a++ vs a+=1
+//7.3
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    
+    
+    Console.WriteLine("up to what?");
+    int y = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("by what incriments?");
+    int x = Convert.ToInt32(Console.ReadLine());
+    for (int a =0; a<=y; a+=x){
+        Console.Write(a + " ");  
+        
+    
+    }
+  }
+}
+//a++ vs a+=1
+//7.4
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    for (int a =1; a<=20; a++){
+      if(a % 2 == 0){
+        Console.WriteLine(a + "<");  
+        }
+      else{
+        Console.WriteLine(a);
+      }
+    
+    }
+  }
+}
+//a++ vs a+=1
+//7.5
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    for (int a =1; a<=100; a++){
+      if(a % 3 == 0 && a % 5 == 0){
+        Console.WriteLine("FIZZBUZZ");  
+        }
+      else if (a % 3 == 0){
+        Console.WriteLine("Fizz");
+      }
+      else if (a % 5 == 0){
+        Console.WriteLine("Buzz");
+      }
+      else{
+        Console.WriteLine(a);
+      }
+    
+    }
+  }
+}
+//a++ vs a+=1
+//7.6
+using System;
+
+class Program {
+  public static void Main (string[] args) {
+    Console.WriteLine("Choose number:");
+    int Input = Convert.ToInt32(Console.ReadLine());
+    
+    for (int a =0; a<=20; a++){
+      int multi = a * Input;
+      Console.WriteLine(a + "*" + Input + " = " + multi);
+    }
+  }
+}
